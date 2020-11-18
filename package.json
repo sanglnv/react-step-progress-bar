@@ -1,5 +1,5 @@
 {
-  "name": "react-step-progress-bar",
+  "name": "react-step-progress-bar-custom",
   "version": "1.0.3",
   "description": "A library to create stunning progress bars and steps in React.",
   "keywords": [
@@ -36,7 +36,8 @@
     "lint": "eslint src",
     "prebuild": "npm run build-css",
     "build": "microbundle --jsx React.createElement",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "prepare": "npm run build"
   },
   "author": {
     "name": "Pierre-Eric Garcia",
