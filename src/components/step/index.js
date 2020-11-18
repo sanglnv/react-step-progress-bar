@@ -24,6 +24,7 @@ Position only accepts values between 0 and 100.
 import * as React from 'react';
 import invariant from 'invariant';
 import { Transition } from 'react-transition-group';
+import classnames from 'classnames';
 import { transitions } from './transitions';
 import { getSafePercent } from '../../utils';
 
@@ -54,10 +55,10 @@ export class Step extends React.Component<StepProps> {
 
     const safePosition = getSafePercent(position);
 
-    let style = {
+    let style = Object.assign({}, {
       left: `${safePosition}%`,
       transitionDuration: `${transitionDuration}ms`,
-    };
+    }, this.props.style);
 
     return (
       <Transition in={accomplished} timeout={transitionDuration}>
@@ -74,7 +75,7 @@ export class Step extends React.Component<StepProps> {
           }
 
           return (
-            <div className="RSPBstep" style={style}>
+            <div className={classnames('RSPBstep', this.props.className)} style={style}>
               {children({
                 accomplished,
                 position: safePosition,
